@@ -10,7 +10,7 @@ const Complete = ({ isNext, setIsNext, reset }: Props) => {
   return (
     <>
       {isNext && (
-        <div className="w-[40%] flex flex-col text-center gap-4 ml-[20%]">
+        <div className="w-[90%] lg:w-[40%] flex flex-col text-center gap-4 lg:ml-[20%] mt-24 lg:mt-0">
           <img
             src={completeIcon}
             alt="complete icon"
