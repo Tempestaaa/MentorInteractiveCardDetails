@@ -18,11 +18,11 @@ const Left = ({ inputs }: Props) => {
       return (
         n.substring(0, 4) +
         " " +
-        n.substring(4, 8) +
+        n.substring(4, 9) +
         " " +
-        n.substring(8, 12) +
+        n.substring(9, 14) +
         " " +
-        n.substring(12, 16)
+        n.substring(14, 19)
       );
     else return n;
   };

@@ -100,9 +100,12 @@ const Right = ({
             <input
               id={`number`}
               type="text"
-              value={inputs.number}
+              value={inputs.number
+                .replace(/\s/g, "")
+                .replace(/(\d{4})/g, "$1 ")
+                .trim()}
               onChange={handleChange}
-              maxLength={16}
+              maxLength={19}
               placeholder="e.g. 1234 5678 9123 0000"
               className={`py-3 px-2 border-2 rounded-md ${
                 error?.number ? "border-error" : "border-input-border"
