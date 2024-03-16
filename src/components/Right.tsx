@@ -3,12 +3,15 @@ import { useState } from "react";
 const validLetter = /^[a-zA-Z]+$/;
 const validNumber = /^[0-9]+$/;
 
-type inputType = {
-  name: string;
-  number: string;
-  month: string;
-  year: string;
-  cvc: string;
+type Props = {
+  inputs: {
+    name: string;
+    number: string;
+    month: string;
+    year: string;
+    cvc: string;
+  };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 type errorType = {
@@ -18,19 +21,8 @@ type errorType = {
   cvc?: string;
 };
 
-const Right = () => {
-  const [inputs, setInputs] = useState<inputType>({
-    name: "",
-    number: "",
-    month: "",
-    year: "",
-    cvc: "",
-  });
+const Right = ({ inputs, handleChange }: Props) => {
   const [error, setError] = useState<errorType>();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    return setInputs({ ...inputs, [e.target.id]: e.target.value });
-  };
 
   const handleError = () => {
     const errorText: errorType = {};
@@ -57,7 +49,6 @@ const Right = () => {
     e.preventDefault();
 
     handleError();
-    console.log(123);
   };
 
   return (
@@ -73,6 +64,7 @@ const Right = () => {
             type="text"
             value={inputs.name}
             onChange={handleChange}
+            maxLength={10}
             placeholder="e.g. Jane Appleseed"
             className={`py-3 px-2 border-2 rounded-md ${
               error?.name ? "border-error" : "border-input-border"
