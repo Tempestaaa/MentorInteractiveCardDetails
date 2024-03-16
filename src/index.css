@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.hide {
+  display: none;
+}
+
 #left {
   background-image: url("./assets//images/bg-main-desktop.png");
   background-repeat: no-repeat;
